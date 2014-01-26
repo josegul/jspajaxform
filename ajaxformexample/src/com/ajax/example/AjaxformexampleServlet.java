@@ -16,6 +16,8 @@ public class AjaxformexampleServlet extends HttpServlet {
 		String lname= req.getParameter("lastname");
 		String email= req.getParameter("emailid");
 		String password= req.getParameter("pwd");
-		out.println("<br/><br/>First Name = "+fname+"<br/><br/>Last Name = "+lname+"<br/><br/>Email = "+email+"<br/><br/>Password = "+password);
+		String Encrypted=UtilsSecure.encrypt(password);
+		String Decrypted = UtilsSecure.decrypt(Encrypted);
+		out.println("<br/><br/>First Name = "+fname+"<br/><br/>Last Name = "+lname+"<br/><br/>Email = "+email+"<br/><br/>Password Encrypted = "+Encrypted+"<br/><br/>Password Decrypted = "+Decrypted);
 	}
 }
